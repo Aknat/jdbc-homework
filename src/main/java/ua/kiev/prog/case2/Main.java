@@ -24,33 +24,23 @@ public class Main {
             ClientDAOImpl2 dao = new ClientDAOImpl2(conn, "Clients");
             dao.createTable(Client.class);
 
-            Client c1 = new Client("test", 1);
-            Client c2 = new Client("darth", 666);
-            Client c3 = new Client("bro", 13);
+            Client c1 = new Client("Han", 333);
+            Client c2 = new Client("Darth", 666);
+            Client c3 = new Client("Test", 13);
             dao.add(c1);
             dao.add(c2);
             dao.add(c3);
 
-            // int id = c.getId();
-
-            List<Client> list = dao.getAll(Client.class, "name");
-            for (Client cli : list) System.out.println("client got from db: " + cli);
-
-//
-
-//            list.get(0).setAge(55);
-//            dao.update(list.get(0));
-
-            /*
+            System.out.println();
 
             List<Client> list = dao.getAll(Client.class, "name", "age");
-            List<Client> list = dao.getAll(Client.class, "age");
+            List<Client> list2 = dao.getAll(Client.class, "age");
             for (Client cli : list)
                 System.out.println(cli);
 
-             */
+            for (Client cli : list2)
+                System.out.println(cli);
 
-//            dao.delete(list.get(0));
         }
     }
 }

@@ -66,8 +66,6 @@ public abstract class AbstractDAO<T> {
             StringBuilder names = new StringBuilder();
             StringBuilder values = new StringBuilder();
 
-            // insert into t (id,name,age) values("..",..
-
             for (Field f : fields) {
                 if (f != id) {
                     f.setAccessible(true);
@@ -86,11 +84,9 @@ public abstract class AbstractDAO<T> {
                 st1.execute(sqlInsert);
             }
 
-
             String name = names.substring(0, names.indexOf(",")); // get the first name from StringBuilder names
             StringBuilder valuesFormatted = values.deleteCharAt(0);
             String value = valuesFormatted.substring(0, values.indexOf("\"")); // get the first value from StringBuilder values
-
 
             String sqlSelect = "SELECT * FROM " + table + " WHERE " + name + " = " + "'" + value + "'";
 
@@ -116,7 +112,6 @@ public abstract class AbstractDAO<T> {
             } catch (Exception ex) {
                 throw new RuntimeException(ex);
             }
-
 
             // TODO: get ID
             // SELECT - X
